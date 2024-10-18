@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name"> Calcular IMC</string>
+    <string name="peso"> Peso: </string>
+    <string name="altura"> Altura: </string>
+    <string name="imc"> IMC: </string>
+    <string name="zeros">0.0</string>
+    <string name="calcular">Calcular</string>
+    <string name="hint_peso">Hint_peso</string>
+    <string name="hint_altura">Hint_altura</string>
+    <string name="limpar">Limpar</string>
+    <string name="erro_peso"> O peso deve ser informado</string>
+    <string name="erro_altura"> A altura deve ser informada</string>
+
+</resources>
