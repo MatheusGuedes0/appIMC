@@ -1,15 +1,11 @@
-package br.edu.utfpr.IMC
+package br.edu.utfpr.imc
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import br.edu.utfpr.IMC.R
 import java.text.NumberFormat
 import java.util.Locale
 import kotlin.math.pow
@@ -45,34 +41,33 @@ class MainActivity : AppCompatActivity() {
     private fun btCalcularOnClick() {
 
         if (etPeso.text.isEmpty()) {
-            etPeso.setError("Peso deve ser informado.")
+            etPeso.error = "Peso deve ser informado."
             return
         } else if (etAltura.text.isEmpty()) {
-            etAltura.setError("Altura deve ser informado.")
+            etAltura.error = "Altura deve ser informado."
             return
         }
         val peso = etPeso.text.toString().toDouble()
         val altura = etAltura.text.toString().toDouble()
-        var  resultado = 0.0
 
-        if(!Locale.getDefault().getLanguage().equals("en")){
-             resultado = peso / (altura * altura)
+        val resultado: Double = if(!Locale.getDefault().language.equals("en")){
+            peso / (altura * altura)
         }else{
-             resultado = 703 * (peso / (altura.pow(2)))
+            703 * (peso / (altura.pow(2)))
         }
 
         val numberFormat: NumberFormat = NumberFormat.getNumberInstance(Locale.US)
 
-        tvResultado.setText(numberFormat.format(resultado))
+        tvResultado.text = numberFormat.format(resultado)
 
         // Toast.makeText(this, "Botão calcular pressionado!", Toast.LENGTH_LONG).show()
 
 
     }
-    fun btLimparOnClick(view: View) {
+    fun btLimparOnClick() {
         etPeso.setText("")
         etAltura.setText("")
-        tvResultado.setText("0.0")
+        tvResultado.text = ("0.0")
         etPeso.requestFocus()
     }
     }

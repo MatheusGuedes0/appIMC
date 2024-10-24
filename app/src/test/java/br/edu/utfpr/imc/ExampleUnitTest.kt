@@ -1,4 +1,4 @@
-package br.edu.utfpr.IMC
+package br.edu.utfpr.imc
 
 import org.junit.Test
 
