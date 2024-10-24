@@ -1,69 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/altura"/>
+        android:text="@string/peso"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/etPeso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_peso"
+        android:padding="16dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvPeso"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/tvAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/altura"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPeso"
+        />
 
     <EditText
         android:id="@+id/etAltura"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Altura em metros"
-        android:inputType="numberDecimal"/>
+        android:hint="@string/hint_altura"
+        android:padding="16dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@id/etPeso"
+        app:layout_constraintBottom_toBottomOf="@id/tvAltura"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="Autofill" />
+
     <TextView
+        android:id="@+id/tvIMC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/peso"/>
-    <EditText
-        android:id="@+id/etPeso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Peso em kg"
-        android:inputType="numberDecimal"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/imc"/>
+        android:padding="16dp"
+        android:text="@string/imc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAltura"
+        />
+
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/zeros"/>
+        android:padding="16dp"
+        android:text="@string/zeros"
+        app:layout_constraintStart_toStartOf="@id/etAltura"
+        app:layout_constraintBottom_toBottomOf="@id/tvIMC"
+        />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btCalcular"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:padding="16dp"
+        android:text="@string/calcular"
+        app:layout_constraintStart_toStartOf="@id/tvResultado"
+        app:layout_constraintTop_toBottomOf="@id/tvResultado"
+        />
 
-        <Button
-            android:id="@+id/btCalcular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/calcular"
-            android:inputType="numberDecimal"/>
+    <Button
+        android:id="@+id/btLimpar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:onClick="btLimparOnClick"
+        android:text="@string/limpar"
+        app:layout_constraintStart_toEndOf="@id/btCalcular"
+        app:layout_constraintBottom_toBottomOf="@id/btCalcular"
+        />
 
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="wrap_content">
-        </Space>
-
-        <Button
-            android:id="@+id/btLimpar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="btLimparOnClick"
-            android:text="Limpar"/>
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
