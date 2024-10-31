@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity() {
         val altura = etAltura.text.toString().toDouble()
 
         val resultado: Double = if(!Locale.getDefault().language.equals("en")){
-            peso / (altura * altura)
+            val calcula = Calcula()
+            calcula.calculaIMC(peso,altura)
         }else{
             703 * (peso / (altura.pow(2)))
         }
@@ -70,4 +71,11 @@ class MainActivity : AppCompatActivity() {
         tvResultado.text = ("0.0")
         etPeso.requestFocus()
     }
+
     }
+
+class Calcula{
+    fun calculaIMC(peso : Double, altura : Double)  : Double {
+        return peso /altura.pow(2)
+    }
+}
